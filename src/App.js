@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import ToDoForm from './ToDoForm';
+import './App.css'; // Mantenha a importação do CSS
 
 function App() {
+  const [todos, setTodos] = useState([]);
+
+  // Função para adicionar novas tarefas
+  const addTodo = (todo) => {
+    if (!todo.text || /^\s*$/.test(todo.text)) {
+      return;
+    }
+    const newTodos = [todo, ...todos];
+    setTodos(newTodos);
+  };
+    const removeTodo = (id) => {
+        const newTodos = todos.filter((todo) => todo.id !== id);
+        setTodos(newTodos);
+      };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Lista de Tarefas</h1>
+        <ToDoForm onSubmit={addTodo} />
+
+        {/* Renderizar a lista de tarefas abaixo do formulário */}
+        <div className="todo-list">
+          {todos.length === 0 ? <p>Nenhuma tarefa adicionada.</p> : todos.map((todo, index) => (
+            <div key={index} className="todo-item">
+              {todo.text}
+            </div>
+          ))}
+        </div>
       </header>
     </div>
   );
 }
 
 export default App;
+

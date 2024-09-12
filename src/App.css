@@ -1,38 +1,62 @@
+/* Estilização do contêiner principal */
 .App {
   text-align: center;
+  background-color: black; /* Fundo preto para a aplicação */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
+/* Estilização do cabeçalho */
 .App-header {
-  background-color: #282c34;
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  color: black; /* Texto preto para contraste */
+}
+
+/* Estilização do formulário de entrada */
+.todo-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.todo-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  width: 300px;
+}
+
+/* Estilização do botão de adicionar tarefa */
+.todo-button {
+  padding: 10px;
+  background-color: blue;
   color: white;
+  border: none;
+  margin-left: 10px;
+  cursor: pointer; /* Para adicionar o ícone de "mão" no botão */
 }
 
-.App-link {
-  color: #61dafb;
+/* Estilização da lista de tarefas */
+.todo-list {
+  margin-top: 20px;
+  width: 100%; /* Ocupa toda a largura da aplicação */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Estilização de cada item da lista de tarefas */
+.todo-item {
+  background-color: #fff;
+  padding: 10px;
+  border-bottom: 1px solid #ccc; /* Borda inferior entre as tarefas */
+  width: 400px;
+  margin: 5px auto;
+  text-align: left;
+  border-radius: 5px; /* Adiciona cantos arredondados */
+}
+
+/* Ocultar qualquer linha horizontal indesejada */
+hr {
+  display: none;
 }
